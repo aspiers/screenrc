@@ -33,3 +33,8 @@ bindkey -k kD stuff "\177"
 # screen -t local 0
 # screen -t mail 1 elm
 # screen -t 40 2 rlogin faui40
+
+# Imbeciles!!!!
+msgwait 0
+# might need this one too
+#msgminwait 0
