@@ -75,19 +75,16 @@ bindkey "[d" prev
 
 # Move window left/right.  This only works with my patch
 # to screen's process.c file.
-bindkey -k k7 number -1  # F7
-bindkey -k k8 number +1  # F8
-# Could have used M-left/M-right:
+# Could have used F7/F8
+#bindkey -k k7 number -1  # F7
+#bindkey -k k8 number +1  # F8
+# or could have used M-left/M-right:
 #bindkey "[C" number +1
 #bindkey "[D" number -1
-# but let's save them for a more common operation.
-
-# Used to use this for quick reordering of windows before writing my patch
-# *Note: Input Translation in screen info for correct -k sequences:
-#     -k k;    F10
-#     -k F1    F11
-#     -k F2    F12
-bindkey -k k; eval colon 'stuff "number "'
+# but let's save them for a more common operation, and use
+# C-s-PageUp/Down a la galeon.
+bindkey "[5@" number -1
+bindkey "[6@" number +1
 
 # For split regions
 bind j focus down
@@ -115,8 +112,16 @@ bindkey -k kI paste .
 # S-down enters copy mode
 bindkey "[b" copy
 
+#####################################################################
 # Bindings using eval go last since they don't work on older screens
 # and we want all other settings to always take effect.
+
+# Used to use this for quick reordering of windows before writing my patch
+# *Note: Input Translation in screen info for correct -k sequences:
+#     -k k;    F10
+#     -k F1    F11
+#     -k F2    F12
+bindkey -k k; eval colon 'stuff "number "'
 
 # S-up enters copy mode and goes up a line
 bindkey "[a" eval copy "stuff k"
