@@ -41,6 +41,8 @@ bindkey -k kD stuff "\177"
 # Doesn't work either.  BAH!!!!
 bindkey -k k3 multiuser off
 bindkey -k k4 multiuser on
+# NOTE: to do multiuser, you must have screen setuid root.
+# grep screen(1) for 'owner'
 
 # F1 is F11, believe it or not.
 bindkey -k F1 colon
