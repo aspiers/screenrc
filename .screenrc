@@ -24,7 +24,8 @@ defscrollback 1000
 # zombie "^["
 
 # C-a is too useful to rebind as a prefix
-escape "^\\"
+defescape ^\\\
+escape ^\\\
 
 #bindkey -k kb stuff "a"
 bindkey -k kD stuff "\177"
