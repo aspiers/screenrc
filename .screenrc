@@ -55,26 +55,39 @@ msgminwait 1
 # Bind delete to ^?.  kD is termcap-speak for delete (-k uses termcap-speak)
 bindkey -k kD stuff "\177"
 
+# Function keys
+
+# (F1 is used by Eterm)
+
 # Changing window title
-bindkey -k k2 title # (F1 is used by Eterm)
-bindkey -k k9 title
+bindkey -k k2 title 
 
 bindkey -k k3 multiuser off
 bindkey -k k4 multiuser on
 # NOTE: to do multiuser, you must have screen setuid root.
 # grep screen(1) for 'owner'
 
-# F1 is F11, believe it or not.
-bindkey -k F1 colon
+bindkey -k k9 colon
 
 # S-left/S-right changes windows.  
 bindkey "[c" next
 bindkey "[d" prev
 
-# M-left/M-right moves window.  This only works with my patch
+# Move window left/right.  This only works with my patch
 # to screen's process.c file.
-bindkey "[C" number +1
-bindkey "[D" number -1
+bindkey -k k7 number -1  # F7
+bindkey -k k8 number +1  # F8
+# Could have used M-left/M-right:
+#bindkey "[C" number +1
+#bindkey "[D" number -1
+# but let's save them for a more common operation.
+
+# Used to use this for quick reordering of windows before writing my patch
+# *Note: Input Translation in screen info for correct -k sequences:
+#     -k k;    F10
+#     -k F1    F11
+#     -k F2    F12
+bindkey -k k; eval colon 'stuff "number "'
 
 # For split regions
 bind j focus down
@@ -97,7 +110,7 @@ bind k focus up
 #   http://www.eterm.org/docs/view.php?doc=ref#keys
 
 # Insert pastes
-bindkey    -k kI paste .
+bindkey -k kI paste .
 
 # S-down enters copy mode
 bindkey "[b" copy
@@ -114,5 +127,3 @@ bindkey -k kP eval copy "stuff ^U^Uj"
 # Insert exits copy mode and pastes
 bindkey -m -k kI eval 'stuff " "' "paste ."
 
-# F9 allows quick reordering of windows
-bindkey -k k9 eval colon 'stuff "number "'
