@@ -24,10 +24,10 @@ defscrollback 10000
 
 # ANSI mostly works with older screens, until the status line hits
 # the right-hand edge of the terminal.
-#hardstatus lastline "[0m%?[1;33m%-Lw[0m%?[44;37m%n*%f %t%?(%u)%?[0m%?[1;33m%+Lw%?[0m"
-hardstatus lastline "%{=}%?%{+b Y}%-Lw%{-}%?%{= BW}%n*%f %t%?(%u)%?%{-}%?%{+b Y}%+Lw%?%{-}"
+#hardstatus alwayslastline "[0m%?[1;33m%-Lw[0m%?[44;37m%n*%f %t%?(%u)%?[0m%?[1;33m%+Lw%?[0m"
+hardstatus alwayslastline "%{=}%?%{+b Y}%-Lw%{-}%?%{= BW}%n*%f %t%?(%u)%?%{-}%?%{+b Y}%+Lw%?%{-}"
 # Really old screens don't have %-Lw and %+Lw
-#hardstatus lastline "[44;37m%w[0m"
+#hardstatus alwayslastline "[44;37m%w[0m"
 
 # don't kill window after the process died
 # zombie "^["
