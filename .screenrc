@@ -35,6 +35,6 @@ bindkey -k kD stuff "\177"
 # screen -t 40 2 rlogin faui40
 
 # Imbeciles!!!!
-msgwait 0
+msgwait 1
 # might need this one too
-#msgminwait 0
+msgminwait 1
