@@ -20,11 +20,12 @@ pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 # Make shell "sticky" - bypass shell switching mechanism if it's in use
 shell $SHELL
 
-defscrollback 3000
+defscrollback 10000
 
-#hardstatus lastline "%{=}%?%{+b Y}%-Lw%{-}%?%{= BW}%n*%f %t%?(%u)%?%{-}%?%{+b Y}%+Lw%?%{-}"
-# ANSI works with older screens
-hardstatus lastline "[0m%?[1;33m%-Lw[0m%?[44;37m%n*%f %t%?(%u)%?[0m%?[1;33m%+Lw%?[0m"
+# ANSI mostly works with older screens, until the status line hits
+# the right-hand edge of the terminal.
+#hardstatus lastline "[0m%?[1;33m%-Lw[0m%?[44;37m%n*%f %t%?(%u)%?[0m%?[1;33m%+Lw%?[0m"
+hardstatus lastline "%{=}%?%{+b Y}%-Lw%{-}%?%{= BW}%n*%f %t%?(%u)%?%{-}%?%{+b Y}%+Lw%?%{-}"
 # Really old screens don't have %-Lw and %+Lw
 #hardstatus lastline "[44;37m%w[0m"
 
