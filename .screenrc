@@ -52,8 +52,8 @@ bindkey -k F1 colon
 # BAH!
 # termcap xterm* %i=\E[C
 # bindkey -k \%i next
-# bindkey [c next
-# bindkey [d prev
+# bindkey "[c" next
+# bindkey "[d" prev
 # bindkey "^[" command -c escape
 # bind -c escape "[" command -c escape-left-square
 # bind -c escape-left-square "C" next
