@@ -6,7 +6,7 @@
 # no annoying audible bell, please
 activity '~Activity in window %'
 bell '~Bell in window %'
-vbell on
+vbell off
 
 # detach on hangup
 autodetach on
@@ -50,14 +50,17 @@ bindkey -k k4 multiuser on
 bindkey -k F1 colon
 
 # PageUp switches to copy mode and goes up a page
-bindkey -t -k kP eval copy "stuff ^U^Uj"
-#bindkey -t -k %e eval copy "stuff ^U^Uj"
+bindkey -k kP eval copy "stuff ^U^Uj"
+#bindkey -k %e eval copy "stuff ^U^Uj"
+
+# Thanks Michael Schroeder!
+termcapinfo xterm* "ks=\E[?1l\E=:ku=\E[A:kd=\E[B:kl=\E[D:kr=\E[C"
 
 # BAH!
-# termcap xterm* %i=\E[C
-# bindkey -k \%i next
-# bindkey "[c" next
-# bindkey "[d" prev
+#termcapinfo xterm* "%i=\E[c"
+#bindkey -k "%i" next
+bindkey "[c" next
+bindkey "[d" prev
 # bindkey "^[" command -c escape
 # bind -c escape "[" command -c escape-left-square
 # bind -c escape-left-square "C" next
