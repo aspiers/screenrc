@@ -26,6 +26,8 @@ defscrollback 10000
 # the right-hand edge of the terminal.
 #hardstatus alwayslastline "[0m%?[1;33m%-Lw[0m%?[44;37m%n*%f %t%?(%u)%?[0m%?[1;33m%+Lw%?[0m"
 hardstatus alwayslastline "%{=}%?%{+b Y}%-Lw%{-}%?%{= BW}%n*%f %t%?(%u)%?%{-}%?%{+b Y}%+Lw%?%{-}"
+# and without colour (FIXME)
+# hardstatus alwayslastline "%{=}%?%{+b Y}%-Lw%{-}%?%{= BW}%n*%f %t%?(%u)%?%{-}%?%{+b Y}%+Lw%?%{-}"
 # Really old screens don't have %-Lw and %+Lw
 #hardstatus alwayslastline "[44;37m%w[0m"
 
@@ -68,6 +70,11 @@ bindkey -k F1 colon
 # S-left/S-right changes windows.  
 bindkey "[c" next
 bindkey "[d" prev
+
+# M-left/M-right moves window.  This only works with my patch
+# to screen's process.c file.
+bindkey "[C" number +1
+bindkey "[D" number -1
 
 # For split regions
 bind j focus down
