@@ -22,7 +22,7 @@ shell $SHELL
 
 defscrollback 3000
 
-hardstatus lastline "%{=}%?%{+b Y}%-Lw%{-}%?%{= BW}%n*%f %t%?%u %?%{-}%? %{+b Y}%+Lw%?%{-}"
+hardstatus lastline "%{=}%?%{+b Y}%-Lw%{-}%?%{= BW}%n*%f %t%?(%u)%?%{-}%?%{+b Y}%+Lw%?%{-}"
 
 # don't kill window after the process died
 # zombie "^["
@@ -37,6 +37,10 @@ bindkey -k kD stuff "\177"
 
 # F2 (F1 is used by Eterm).  Doesn't work; use cx instead.
 #bindkey -k k2 title
+
+# Doesn't work either.  BAH!!!!
+bindkey -k k3 multiuser off
+bindkey -k k4 multiuser on
 
 # F1 is F11, believe it or not.
 bindkey -k F1 colon
