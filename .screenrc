@@ -1,3 +1,5 @@
+# -*- mode: sh -*-
+
 # This is how one can set a reattach password:
 # password ODSJQf.4IJN7E    # "1234"
 
@@ -15,25 +17,46 @@ startup_message off
 # emulate .logout message
 pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 
-# make the shell in every window a login shell
-#shell -$SHELL
+# Make shell "sticky" - bypass shell switching mechanism if it's in use
+shell $SHELL
 
-defscrollback 1000
+defscrollback 3000
+
+hardstatus lastline "%{=}%?%{+b Y}%-Lw%{-}%?%{= BW}%n*%f %t%?%u %?%{-}%? %{+b Y}%+Lw%?%{-}"
 
 # don't kill window after the process died
 # zombie "^["
 
-# C-a is too useful to rebind as a prefix
+# C-a is too useful to rebind as a prefix.  This is actually two
+# "characters", the first being ^\, and the second \\.
 defescape ^\\\
 escape ^\\\
 
-#bindkey -k kb stuff "a"
+# Bind delete to ^?.  kD is termcap-speak for delete (-k uses termcap-speak)
 bindkey -k kD stuff "\177"
 
-# default windows
-# screen -t local 0
-# screen -t mail 1 elm
-# screen -t 40 2 rlogin faui40
+# F2 (F1 is used by Eterm).  Doesn't work; use cx instead.
+#bindkey -k k2 title
+
+# F1 is F11, believe it or not.
+bindkey -k F1 colon
+
+# BAH!
+# termcap xterm* %i=\E[C
+# bindkey -k \%i next
+# bindkey [c next
+# bindkey [d prev
+# bindkey "^[" command -c escape
+# bind -c escape "[" command -c escape-left-square
+# bind -c escape-left-square "C" next
+# bind -c escape-left-square "D" prev
+ 
+# Default startup windows (-t <title>)
+screen
+screen
+#screen
+# start with 0th window
+select 0
 
 # Imbeciles!!!!
 msgwait 1
