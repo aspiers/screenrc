@@ -39,8 +39,8 @@ escape ^\\\
 # Bind delete to ^?.  kD is termcap-speak for delete (-k uses termcap-speak)
 bindkey -k kD stuff "\177"
 
-# F2 (F1 is used by Eterm).  Doesn't work; use cx instead.
-#bindkey -k k2 title
+# F2 (F1 is used by Eterm).
+bindkey -k k2 title
 
 bindkey -k k3 multiuser off
 bindkey -k k4 multiuser on
