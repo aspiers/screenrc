@@ -118,8 +118,8 @@ bindkey -k k; eval colon 'stuff "number "'
 # S-up enters copy mode and goes up a line
 bindkey "[a" eval copy "stuff k"
 
-# PageUp enters copy mode and goes up a page
-bindkey -k kP eval copy "stuff ^U^Uj"
+# PageUp enters copy mode and goes to top of the page
+bindkey -k kP eval copy "stuff H"
 
 # Insert exits copy mode and pastes
 bindkey -m -k kI eval 'stuff " "' "paste ."
@@ -127,9 +127,9 @@ bindkey -m -k kI eval 'stuff " "' "paste ."
 # Ctrl-PageUp reverse searches for a prompt delimiter, assuming
 # use of the 'adam2' prompt theme in zsh.
 # It enters copy mode if not already in it, hence both bindings.
-bindkey    "[5\^" eval copy "stuff kk?----------------------\015\^jlllll"
-bindkey -m "[5\^"           stuff "kk?----------------------\015\^jlllll"
+bindkey    "[5\^" eval copy "stuff kk?---------(\015\^jlllll"
+bindkey -m "[5\^"           stuff "kk?---------(\015\^jlllll"
 
 # Ctrl-PageDown in copy mode forward searches for a prompt delimiter
-bindkey -m "[6\^"           stuff "j/----------------------\015\^jlllll"
+bindkey -m "[6\^"           stuff "j/----------(\015\^jlllll"
 
