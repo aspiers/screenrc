@@ -57,17 +57,12 @@ bindkey -k kD stuff "\177"
 
 # Function keys
 
-# (F1 is used by Eterm)
+# F1 is used by Eterm, leave F2-F8 on LHS for per-app bindings.
 
-# Changing window title
-bindkey -k k2 title 
-
-bindkey -k k3 multiuser off
-bindkey -k k4 multiuser on
+bindkey -k k9 multiuser off # F9
+bindkey -k k; multiuser on  # F10
 # NOTE: to do multiuser, you must have screen setuid root.
 # grep screen(1) for 'owner'
-
-bindkey -k k9 colon
 
 # S-left/S-right changes windows.  
 bindkey "[c" next
@@ -75,10 +70,7 @@ bindkey "[d" prev
 
 # Move window left/right.  This only works with my patch
 # to screen's process.c file.
-# Could have used F7/F8
-#bindkey -k k7 number -1  # F7
-#bindkey -k k8 number +1  # F8
-# or could have used M-left/M-right:
+# Could have used M-left/M-right:
 #bindkey "[C" number +1
 #bindkey "[D" number -1
 # but let's save them for a more common operation, and use
