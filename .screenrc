@@ -49,6 +49,10 @@ bindkey -k k4 multiuser on
 # F1 is F11, believe it or not.
 bindkey -k F1 colon
 
+# PageUp switches to copy mode and goes up a page
+bindkey -t -k kP eval copy "stuff ^U^Uj"
+#bindkey -t -k %e eval copy "stuff ^U^Uj"
+
 # BAH!
 # termcap xterm* %i=\E[C
 # bindkey -k \%i next
