@@ -130,6 +130,6 @@ bindkey -m -k kI eval 'stuff " "' "paste ."
 bindkey    "[5\^" eval copy "stuff kk?----------------------\015\^jlllll"
 bindkey -m "[5\^"           stuff "kk?----------------------\015\^jlllll"
 
-# Ctrl-PageUp in copy mode forward searches for a prompt delimiter
+# Ctrl-PageDown in copy mode forward searches for a prompt delimiter
 bindkey -m "[6\^"           stuff "j/----------------------\015\^jlllll"
 
