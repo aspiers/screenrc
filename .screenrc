@@ -68,6 +68,10 @@ bindkey -k F1 colon
 bindkey "[c" next
 bindkey "[d" prev
 
+# For split regions
+bind j focus down
+bind k focus up
+
 # Thanks Michael Schroeder for helping me get this working!
 #
 #termcapinfo xterm* "ks=\E[?1l\E=:ku=\E[A:kd=\E[B:kl=\E[D:kr=\E[C"
@@ -102,3 +106,5 @@ bindkey -k kP eval copy "stuff ^U^Uj"
 # Insert exits copy mode and pastes
 bindkey -m -k kI eval 'stuff " "' "paste ."
 
+# F9 allows quick reordering of windows
+bindkey -k k9 eval colon 'stuff "number "'
