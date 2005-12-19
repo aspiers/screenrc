@@ -133,3 +133,5 @@ bindkey -m "[5\^"           stuff "kk?---------(\015\^jlllll"
 # Ctrl-PageDown in copy mode forward searches for a prompt delimiter
 bindkey -m "[6\^"           stuff "j/----------(\015\^jlllll"
 
+# Make N search in opposite direction?
+#bindkey -m N stuff "?^j"
