@@ -57,10 +57,11 @@ bindkey -k kD stuff "\177"
 
 # Function keys
 
-# F1 is used by Eterm, leave F2-F8 on LHS for per-app bindings.
 
-bindkey -k k9 multiuser off # F9
-bindkey -k k; multiuser on  # F10
+# F1 is used by Eterm, leave F2-F7 on LHS for per-app bindings.
+
+bindkey -k k8 multiuser off # F8
+bindkey -k k9 multiuser on  # F9
 # NOTE: to do multiuser, you must have screen setuid root.
 # grep screen(1) for 'owner'
 
@@ -101,9 +102,6 @@ bind k focus up
 # Insert pastes
 bindkey -k kI paste .
 
-# S-down enters copy mode
-bindkey "[b" copy
-
 #####################################################################
 # Bindings using eval go last since they don't work on older screens
 # and we want all other settings to always take effect.
@@ -115,8 +113,11 @@ bindkey "[b" copy
 #     -k F2    F12
 bindkey -k k; eval colon 'stuff "number "'
 
-# S-up enters copy mode and goes up a line
-bindkey "[a" eval copy "stuff k"
+# S-up enters copy mode and enters reverse-isearch from bottom of buffer
+bindkey "[a" eval copy "stuff \^r"
+
+# S-down enters copy mode and enters isearch from top of buffer
+bindkey "[b" eval copy "stuff qg\^s"
 
 # PageUp enters copy mode and goes to top of the page
 bindkey -k kP eval copy "stuff H"
