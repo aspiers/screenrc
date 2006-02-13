@@ -43,7 +43,7 @@ escape ^\\\
 # Presumably if I'm using screen I want at least 2 windows.
 screen
 screen
-#screen
+screen
 # start with 0th window
 select 0
 
