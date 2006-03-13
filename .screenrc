@@ -5,7 +5,10 @@
 
 activity '^GActivity in window %'
 bell_msg '^GBell in window %' # message for bell in bg window
-vbell on
+vbell_msg '^GBell in window %' # message for bell in bg window
+
+# xterm has a nice visual bell, so make screen pass it through.
+vbell off
 #vbellwait 1
 
 # detach on hangup
@@ -65,9 +68,13 @@ bindkey -k k9 multiuser on  # F9
 # NOTE: to do multiuser, you must have screen setuid root.
 # grep screen(1) for 'owner'
 
-# S-left/S-right changes windows.  
+# S-left/S-right in Eterm changes windows.
 bindkey "[c" next
 bindkey "[d" prev
+
+# S-left/S-right in xterm changes windows.
+bindkey "[1;2C" next
+bindkey "[1;2D" prev
 
 # Move window left/right.  This only works with my patch
 # to screen's process.c file.
@@ -128,11 +135,18 @@ bindkey -m -k kI eval 'stuff " "' "paste ."
 # Ctrl-PageUp reverse searches for a prompt delimiter, assuming
 # use of the 'adam2' prompt theme in zsh.
 # It enters copy mode if not already in it, hence both bindings.
-bindkey    "[5\^" eval copy "stuff kk?---------(\015\^jlllll"
-bindkey -m "[5\^"           stuff "kk?---------(\015\^jlllll"
+# Eterm sequence:
+bindkey    "[5\^"  eval copy "stuff kk?---------(\015\^jlllll"
+bindkey -m "[5\^"            stuff "kk?---------(\015\^jlllll"
+# xterm sequence:
+bindkey    "[5;5~" eval copy "stuff kk?---------(\015\^jlllll"
+bindkey -m "[5;5~"           stuff "kk?---------(\015\^jlllll"
 
 # Ctrl-PageDown in copy mode forward searches for a prompt delimiter
+# Eterm sequence:
 bindkey -m "[6\^"           stuff "j/----------(\015\^jlllll"
+# xterm sequence:
+bindkey -m "[6;5~"          stuff "j/----------(\015\^jlllll"
 
 # Make N search in opposite direction?
 #bindkey -m N stuff "?^j"
