@@ -5,7 +5,7 @@
 
 activity '^GActivity in window %'
 bell_msg '^GBell in window %' # message for bell in bg window
-vbell_msg '^GBell in window %' # message for bell in bg window
+vbell_msg 'Bell in window %' # message for bell in bg window
 
 # xterm has a nice visual bell, so make screen pass it through.
 vbell off
