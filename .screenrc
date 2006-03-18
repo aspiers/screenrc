@@ -120,10 +120,16 @@ bindkey -k kI paste .
 bindkey -k k; eval colon 'stuff "number "'
 
 # S-up enters copy mode and enters reverse-isearch from bottom of buffer
+# Eterm sequence:
 bindkey "[a" eval copy "stuff \^r"
+# xterm sequence:
+bindkey "[1;2A" eval copy "stuff \^r"
 
 # S-down enters copy mode and enters isearch from top of buffer
-bindkey "[b" eval copy "stuff qg\^s"
+# Eterm sequence:
+bindkey "[b" eval copy "stuff g\^s"
+# xterm sequence:
+bindkey "[1;2B" eval copy "stuff g\^s"
 
 # PageUp enters copy mode and goes to top of the page
 bindkey -k kP eval copy "stuff H"
