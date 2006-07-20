@@ -42,7 +42,9 @@ defescape ^\\\
 escape ^\\\
 
 # Default startup windows (-t <title>).
-# Presumably if I'm using screen I want at least 2 windows.
+# Presumably if I'm using screen I want at least a few windows.
+screen
+screen
 screen
 screen
 screen su
