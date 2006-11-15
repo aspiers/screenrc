@@ -47,7 +47,8 @@ screen
 screen
 screen
 screen
-screen su
+#screen su
+screen sudo zsh
 # start with 0th window
 select 0
 
