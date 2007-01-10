@@ -47,8 +47,11 @@ screen
 screen
 screen
 screen
-#screen su
-screen sudo zsh
+# need pam_xauth
+screen su
+screen su
+#screen sudo zsh
+#screen sudo zsh
 # start with 0th window
 select 0
 
