@@ -1,0 +1,27 @@
+# Thanks Michael Schroeder for helping me get this working!
+#
+#termcapinfo xterm* "ks=\E[?1l\E=:ku=\E[A:kd=\E[B:kl=\E[D:kr=\E[C"
+#
+# Commented out, because as it turns out, ensuring TERM=Eterm
+# will work nicer than the above hack.  Here's an 
+# explanation of what it does anyway:
+#
+# \E[? is for DEC private modes.  1 is for Application/Normal
+# cursor keys, and l does a DECRST.  \E= sets Application Keypad
+# (\E> sets Normal Keypad).  Setting the ks capability to this
+# ensures that Eterm never switches to application mode.  We
+# want normal mode, since in normal mode, Eterm distinguishes
+# between left and S-left:
+#   http://www.eterm.org/docs/view.php?doc=ref#keys
+
+# S-left/S-right in Eterm changes windows.
+bindkey "[c" next
+bindkey "[d" prev
+
+# S-left/S-right in xterm changes windows.
+bindkey "[1;2C" next
+bindkey "[1;2D" prev
+
+# For split regions, bind C-\ j/k to up/down between regions
+bind j focus down
+bind k focus up

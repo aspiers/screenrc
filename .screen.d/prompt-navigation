@@ -1,0 +1,15 @@
+# Ctrl-PageUp reverse searches for a prompt delimiter, assuming
+# use of the 'adam2' prompt theme in zsh.
+# It enters copy mode if not already in it, hence both bindings.
+# Eterm sequence:
+bindkey    "[5\^"  eval copy "stuff kk?---------(\015\^jlllll"
+bindkey -m "[5\^"            stuff "kk?---------(\015\^jlllll"
+# xterm sequence:
+bindkey    "[5;5~" eval copy "stuff kk?---------(\015\^jlllll"
+bindkey -m "[5;5~"           stuff "kk?---------(\015\^jlllll"
+
+# Ctrl-PageDown in copy mode forward searches for a prompt delimiter
+# Eterm sequence:
+bindkey -m "[6\^"           stuff "j/----------(\015\^jlllll"
+# xterm sequence:
+bindkey -m "[6;5~"          stuff "j/----------(\015\^jlllll"

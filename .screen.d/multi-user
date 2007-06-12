@@ -1,0 +1,4 @@
+bindkey -k k8 multiuser off # F8
+bindkey -k k9 multiuser on  # F9
+# NOTE: to do multiuser, you must have screen setuid root.
+# grep screen(1) for 'owner'

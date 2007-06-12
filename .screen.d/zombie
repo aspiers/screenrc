@@ -1,0 +1,3 @@
+# Don't kill window after the process died - 
+# 'k' kills window, 'r' restarts
+zombie kr

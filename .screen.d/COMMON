@@ -1,0 +1,40 @@
+# This is how one can set a reattach password:
+# password ODSJQf.4IJN7E    # "1234"
+
+# emulate .logout message
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+
+# Make shell "sticky" - bypass shell switching mechanism if it's in use
+shell $SHELL
+
+# C-a is too useful to rebind as a prefix.  This is actually two
+# "characters", the first being ^\, and the second \\.
+defescape ^\\\
+escape ^\\\
+
+# Imbeciles!!!!
+msgwait 1
+# might need this one too
+msgminwait 1
+
+# Bind delete to ^?.  kD is termcap-speak for delete (-k uses termcap-speak)
+bindkey -k kD stuff "\177"
+
+#####################################################################
+# Notes about keybindings:
+#
+# F1 is used by Eterm, leave F2-F7 on LHS of Kinesis keyboard for
+# per-app bindings.
+# 
+# Bindings using eval should ideally go last since they don't work on
+# older screens and we want all other settings to always take effect.
+
+source $ZDOTDIR/.screen.d/bell
+source $ZDOTDIR/.screen.d/multi-user
+source $ZDOTDIR/.screen.d/status-bar
+source $ZDOTDIR/.screen.d/scrollback
+#source $ZDOTDIR/.screen.d/no-splash
+source $ZDOTDIR/.screen.d/window-navigation
+source $ZDOTDIR/.screen.d/prompt-navigation
+source $ZDOTDIR/.screen.d/rearranging
+source $ZDOTDIR/.screen.d/scrollback
