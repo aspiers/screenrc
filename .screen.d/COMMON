@@ -33,7 +33,7 @@ source $ZDOTDIR/.screen.d/bell
 source $ZDOTDIR/.screen.d/multi-user
 source $ZDOTDIR/.screen.d/status-bar
 source $ZDOTDIR/.screen.d/scrollback
-#source $ZDOTDIR/.screen.d/no-splash
+source $ZDOTDIR/.screen.d/no-splash
 source $ZDOTDIR/.screen.d/window-navigation
 source $ZDOTDIR/.screen.d/prompt-navigation
 source $ZDOTDIR/.screen.d/rearranging
