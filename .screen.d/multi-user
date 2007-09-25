@@ -2,3 +2,7 @@ bindkey -k k8 multiuser off # F8
 bindkey -k k9 multiuser on  # F9
 # NOTE: to do multiuser, you must have screen setuid root.
 # grep screen(1) for 'owner'
+#
+# Then do acladd $otheruser, and other user does:
+#   screen -r $owner/pid.tty.host
+# obtainable from screen -ls
