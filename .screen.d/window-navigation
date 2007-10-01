@@ -25,6 +25,9 @@ bindkey "[1;2D" prev
 # S-left/S-right in gnome-terminal changes windows!
 bindkey "O2C" next
 bindkey "O2D" prev
+# Also for gnome-terminal 2.18 on Ubuntu 7.04 with TERM=xterm:
+bindkey "O1;2C" next
+bindkey "O1;2D" prev
 
 # Quick jumping via M-number
 bindkey "^[)" select 0
