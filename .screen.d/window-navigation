@@ -22,6 +22,25 @@ bindkey "[d" prev
 bindkey "[1;2C" next
 bindkey "[1;2D" prev
 
+# S-left/S-right in gnome-terminal changes windows!
+bindkey "O2C" next
+bindkey "O2D" prev
+
+# Quick jumping via M-number
+bindkey "^[)" select 0
+bindkey "^[!" select 1
+bindkey "^[\"" select 2
+bindkey "^[@" select 2
+bindkey "^[£" select 3
+bindkey "^[B^[#" select 3
+bindkey "^[$" select 4
+bindkey "^[%" select 5
+bindkey "^[^^" select 6
+bindkey "^[&" select 7
+bindkey "^[*" select 8
+bindkey "^[(" select 9
+
+
 # For split regions, bind C-\ j/k to up/down between regions
 bind j focus down
 bind k focus up
