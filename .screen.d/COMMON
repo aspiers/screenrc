@@ -30,6 +30,7 @@ bindkey -k kD stuff "\177"
 # older screens and we want all other settings to always take effect.
 
 source $ZDOTDIR/.screen.d/bell
+source $ZDOTDIR/.screen.d/colours
 source $ZDOTDIR/.screen.d/multi-user
 source $ZDOTDIR/.screen.d/status-bar
 source $ZDOTDIR/.screen.d/scrollback
