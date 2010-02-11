@@ -1,0 +1,51 @@
+# rxvt is normally 88-color-capable unless patched to 256.  This can
+# be seen by running my tty-colors script (which isn't affected by
+# $TERM w.r.t. the number of colours).
+#
+# OTOH emacs *does* rely on $TERM to figure out the right colour map.
+# Similarly screen looks at the value of $TERM when launched to determine
+# its behaviour.
+#
+# TERM=rxvt-unicode does the right thing outside screen - generally it
+# will signal 88 colours to emacs (test with M-x list-colors-display).
+
+#term rxvt-unicode
+
+# However, screen automatically maps the 88 colours to a 256 colour
+# palette, so that apps running inside screen need to believe they
+# have 256, and then used colours get flattened back onto the 88
+# colour palette.  This can be seen by running my tty-colors script
+# inside and outside screen and comparing the results.
+#
+# So the working combinations are:
+#
+# (1) TERM=rxvt-256color when launching screen and
+#     TERM=rxvt-unicode when launching emacs inside screen
+#
+#     Here screen thinks we have 256 colours but only the first 88 are
+#     non-black.  emacs only uses the first 88.
+#
+#
+# (2) TERM=rxvt-256color when launching screen and
+#     TERM=rxvt-256color when launching emacs inside screen
+#
+#     Here screen thinks we have 256 colours but only the first 88 are
+#     non-black.  emacs sees all 256 but only uses the first 88.
+#
+# (3) TERM=rxvt-unicode when launching screen and
+#     TERM=rxvt-256color when launching emacs inside screen
+#
+#     Here screen stretches the 88 colours across the 256 colour space,
+#     and emacs uses them all.
+#
+# The third option is best because it doesn't require changing TERM
+# outside screen:
+
+term rxvt-256color
+
+# This one is too long:
+#screen-256color-bce-s
+
+# for some reason this one only yields 8 colours:
+#term screen-256color-bce
+
