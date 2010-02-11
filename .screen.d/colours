@@ -25,12 +25,12 @@
 #     Here screen thinks we have 256 colours but only the first 88 are
 #     non-black.  emacs only uses the first 88.
 #
-#
 # (2) TERM=rxvt-256color when launching screen and
 #     TERM=rxvt-256color when launching emacs inside screen
 #
-#     Here screen thinks we have 256 colours but only the first 88 are
-#     non-black.  emacs sees all 256 but only uses the first 88.
+#     This one doesn't really work.  Here screen thinks we have 256
+#     colours but only the first 88 are non-black.  emacs sees all 256
+#     and the colour-matching algorithms break.
 #
 # (3) TERM=rxvt-unicode when launching screen and
 #     TERM=rxvt-256color when launching emacs inside screen
@@ -38,10 +38,18 @@
 #     Here screen stretches the 88 colours across the 256 colour space,
 #     and emacs uses them all.
 #
-# The third option is best because it doesn't require changing TERM
-# outside screen:
+# With the first and second options, TERM should only be changed
+# immediately prior to launching screen, otherwise other apps'
+# colour rendering will be messed up.
+#
+# Therefore the third option is easiest to implement because it
+# doesn't require changing TERM outside screen.  Changing term just
+# for inside screen is easily done:
 
 term rxvt-256color
+
+# Neither the first or third option are near perfect w.r.t. emacs'
+# colour-matching :-/
 
 # This one is too long:
 #screen-256color-bce-s
