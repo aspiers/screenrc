@@ -51,7 +51,10 @@ term rxvt-256color
 # Neither the first or third option are near perfect w.r.t. emacs'
 # colour-matching :-/
 
-# This one is too long:
+# However this breaks left/right cursor keys in less(1) on openSUSE 12.1 :-(
+# Fixable via: TERM=screen 
+
+# This one is too long (really? what did I mean by that?):
 #screen-256color-bce-s
 
 # for some reason this one only yields 8 colours:
