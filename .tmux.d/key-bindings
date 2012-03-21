@@ -7,11 +7,19 @@ bind     C-\ last-window
 # handy bindings
 bind   -n  PPage      source ~/.tmux.d/copy-page-up
 bind   -n  IC         paste-buffer
+
 # Only commands from the current (i.e. main) key-table are available,
 # not search-backward which is only available to *-edit key-tables:
 #bind   -n  C-M-r      copy-mode \; search-backward
-# So we have to use send-keys instead.
-bind   -n  C-M-r      copy-mode \; send-keys ?
+
+# So we have to use send-keys instead:
+#bind   -n  C-M-r      copy-mode \; send-keys ?
+
+# But we can do better by using command-prompt to work around the
+# crappy native search-backward prompt which has no history and places
+# the cursor on the 'h' of Search:
+bind   -n  C-M-r      copy-mode \; command-prompt -p "Search Up:" 'send-keys ? C-u %% Enter'
+
 bind       A          command-prompt 'rename-window %%'
 bind       M          set-window-option monitor-activity
 bind       C-g        set visual-bell
