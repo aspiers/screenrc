@@ -1,0 +1,6 @@
+unbind -t vi-copy Z
+bind   -t vi-copy Z copy-selection
+send-keys Z
+unbind -t vi-copy Z 
+source ~/.tmux.d/copy-mode-teardown
+paste-buffer

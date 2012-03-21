@@ -1,0 +1,4 @@
+unbind -n  q
+unbind -n  IC
+bind   -n  IC         paste-buffer
+source ~/.tmux.d/prompt-navigation

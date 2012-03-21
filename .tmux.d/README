@@ -1,0 +1,23 @@
+tmux binding quirks
+-------------------
+
+http://thread.gmane.org/gmane.comp.terminal-emulators.tmux.user/1519/focus=1648
+
+- When binding, can only use commands from the "current" mode
+  which you're binding to, e.g. 'page-up' is only valid with
+  -t vi-copy or -t emacs-copy, and 'send-keys' is only valid
+  in global binding context (i.e. without -t).
+
+- Can't bind multiple commands inside copy-mode.
+
+  - Instead, you have to add global bindings for the commands,
+    to source scripts, which can contain normal commands in global
+    context (send-keys etc.)
+
+  - In order to execute copy-mode actions from the global bindings,
+    you have to rebind the copy-mode actions to a temporary key K,
+    then send-keys K to execute the action.
+
+  - source-file can be chained.
+
+Yuk!

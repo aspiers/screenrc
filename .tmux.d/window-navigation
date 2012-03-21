@@ -1,0 +1,4 @@
+bind -n  S-Left     previous-window
+bind -n  S-Right    next-window
+bind -n  C-S-PPage  swap-window -t -
+bind -n  C-S-NPage  swap-window -t +

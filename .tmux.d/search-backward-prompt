@@ -1,0 +1,3 @@
+source ~/.tmux.d/enter-copy-mode
+send-keys 'kk?-------' ( Enter 0jlllll
+#send-keys 'k?`-->' Enter lllll

@@ -1,0 +1,22 @@
+set -g status-right ""
+set -g status-left-fg yellow
+set -g status-bg green
+set -g window-status-current-fg    white
+set -g window-status-current-attr  bold
+
+set -g window-status-activity-attr bold
+set -g window-status-bell-attr     bold
+set -g window-status-content-attr  bold
+
+set -g window-status-activity-bg   red
+set -g window-status-bell-bg       red
+set -g window-status-content-bg    red
+
+set -g window-status-activity-fg   white
+set -g window-status-bell-fg       green
+set -g window-status-content-fg    blue
+
+# The old way of doing it.
+# There's a bug making these two the wrong way around
+#set -g window-status-alert-fg red
+#set -g window-status-alert-bg white

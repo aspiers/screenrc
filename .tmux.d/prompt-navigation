@@ -1,0 +1,2 @@
+unbind -n C-PPage
+bind   -n C-PPage source ~/.tmux.d/search-backward-prompt
