@@ -45,4 +45,4 @@ bind -t vi-copy     C-v  page-down
 bind -t vi-copy     M-<  history-top
 bind -t vi-copy     M->  history-bottom
 
-bind                *    set -g synchronize-panes
+bind                *    set synchronize-panes
