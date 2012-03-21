@@ -5,7 +5,7 @@
 #
 # (from http://tmux.svn.sourceforge.net/viewvc/tmux/trunk/FAQ)
 for screen_terminfo in screen-256color{,-bce}; do
-    if ! infocmp "$screen_terminfo" 2>/dev/null; then
+    if ! infocmp "$screen_terminfo" >/dev/null 2>&1; then
         echo "$screen_terminfo not defined; skipping ..."
         continue
     fi
