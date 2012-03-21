@@ -1,5 +1,12 @@
-set -g automatic-rename on # only as a fall-back for when cx is never invoked
-set -g default-terminal screen-256color-it
+# Only as a fall-back for when cx is never invoked
+set -g automatic-rename on
+
+# This fixes the copy'n'paste end of line issue with mutt, etc.
+# but it also screws up ssh'ing to other machines which don't
+# have this tweaked terminfo entry set up.  So it's best that
+# we only use it when we really need it.
+#set -g default-terminal screen-256color-bce-it
+
 set -g history-limit 5000
 set -g set-clipboard on
 set -g set-titles on
