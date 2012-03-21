@@ -28,6 +28,7 @@ set -g status-keys emacs
 
 # Odd that this isn't the default
 bind -t emacs-edit  C-g  cancel
+bind -t vi-edit     C-g  cancel
 
 bind -t vi-copy     C-p  cursor-up
 bind -t vi-copy     C-n  cursor-down
