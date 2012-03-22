@@ -23,6 +23,7 @@ bind   -n  C-M-r      copy-mode \; command-prompt -p "Search Up:" 'send-keys ? C
 bind       A          command-prompt 'rename-window %%'
 bind       M          set-window-option monitor-activity
 bind       C-g        set visual-bell
+bind       J          command-prompt -p "Join to window:" 'join-pane -t %%'
 unbind     K
 bind       K          confirm-before kill-window
 bind       C-Q        kill-session
