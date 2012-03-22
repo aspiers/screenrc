@@ -1,7 +1,14 @@
-set    status-right "#T"
-set    status-left-fg  yellow
-set    status-right-fg yellow
-set    status-bg green
+# N.B. set -g sets global session options; these can still be
+# overridden per session.
+#
+# Also be aware that creating a new session via 'tmux' will not
+# re-read any config files if the server is already running; it will
+# just connect to the running server.
+
+set -g status-right "#T"
+set -g status-left-fg  yellow
+set -g status-right-fg yellow
+set -g status-bg green
 
 set -g window-status-current-fg    white
 set -g window-status-current-attr  bold
