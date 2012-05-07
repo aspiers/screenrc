@@ -1,4 +1,12 @@
-# Only as a fall-back for when cx is never invoked
+# Only as a fall-back for when titles are not set "manually"
+# via cx, or tmux's rename-window command.
+#
+# At one point there was a bug where automatic renaming
+# would stomp over manual names, as described in the comments of:
+#
+# http://blog.hawkhost.com/2010/06/28/tmux-the-terminal-multiplexer/
+#
+# but it looks like it was fixed by r2775 (OpenBSD patchset 1093)
 set -g automatic-rename on
 
 # This fixes the copy'n'paste end of line issue with mutt, etc.
