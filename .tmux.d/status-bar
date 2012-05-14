@@ -5,7 +5,9 @@
 # re-read any config files if the server is already running; it will
 # just connect to the running server.
 
-set -g status-right "#T"
+# This is a waste of space
+#set -g status-right "#T"
+
 set -g status-left-fg  yellow
 set -g status-right-fg yellow
 set -g status-bg green
