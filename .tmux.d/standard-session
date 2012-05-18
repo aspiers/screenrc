@@ -1,0 +1,15 @@
+#new
+new-window
+new-window
+new-window
+new-window
+send-keys 'su -' Enter
+new-window
+send-keys 'su -' Enter
+attach
+
+select-window -t -
+select-window -t -
+select-window -t -
+select-window -t -
+select-window -t -
