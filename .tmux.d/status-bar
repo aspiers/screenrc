@@ -5,8 +5,8 @@
 # re-read any config files if the server is already running; it will
 # just connect to the running server.
 
-# This is a waste of space
-#set -g status-right "#T"
+# Default of "#T" is a waste of space
+set -g status-right ""
 
 set -g status-left-fg  yellow
 set -g status-right-fg yellow
