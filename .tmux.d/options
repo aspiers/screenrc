@@ -9,11 +9,8 @@
 # but it looks like it was fixed by r2775 (OpenBSD patchset 1093)
 set -g automatic-rename on
 
-# This fixes the copy'n'paste end of line issue with mutt, etc.
-# but it also screws up ssh'ing to other machines which don't
-# have this tweaked terminfo entry set up.  So it's best that
-# we only use it when we really need it.
-#set -g default-terminal screen-256color-bce-it
+# See ~/org/notes/Terminals.org
+set -g default-terminal screen-256color-bce-it
 
 set -g history-limit 5000
 set -g set-clipboard on
