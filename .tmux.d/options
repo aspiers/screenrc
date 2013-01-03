@@ -16,3 +16,5 @@ set -g history-limit 5000
 set -g set-clipboard on
 set -g set-titles on
 set -g wrap-search off
+
+#update-environment "DISPLAY SSH_ASKPASS SSH_AUTH_SOCK SSH_AGENT_PID SSH_CONNECTION WINDOWID XAUTHORITY XAUTHLOCALHOSTNAME"
