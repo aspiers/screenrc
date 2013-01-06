@@ -21,7 +21,7 @@ bind   -n  IC         paste-buffer
 # the cursor on the 'h' of Search:
 bind   -n  C-M-r      copy-mode \; command-prompt -p "Search Up:" 'send-keys ? C-u %% Enter'
 
-bind       A          command-prompt 'rename-window %%'
+bind       A          command-prompt -I '#W' 'rename-window "%%"'
 bind       M          set-window-option monitor-activity
 bind       C-g        set visual-bell
 bind       j          command-prompt -p "Join to window:" 'join-pane -t %%'
@@ -31,7 +31,7 @@ bind       K          confirm-before kill-window
 bind       C-Q        kill-session
 unbind     C-l
 bind       C-l        refresh-client
-bind       S          command-prompt 'rename-session %%'
+bind       S          command-prompt -I '#S' 'rename-session "%%"'
 bind   -n  F10        command-prompt
 
 # This strange combination is what I'm used to from GNU screen
