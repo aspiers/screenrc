@@ -21,6 +21,8 @@ bind   -n  IC         paste-buffer
 # the cursor on the 'h' of Search:
 bind   -n  C-M-r      copy-mode \; command-prompt -p "Search Up:" 'send-keys ? C-u %% Enter'
 
+bind       s          choose-session
+bind       t          choose-tree
 bind       A          command-prompt -I '#W' 'rename-window "%%"'
 bind       M          set-window-option monitor-activity
 bind       C-g        set visual-bell
