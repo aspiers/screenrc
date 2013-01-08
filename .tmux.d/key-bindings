@@ -21,6 +21,9 @@ bind   -n  IC         paste-buffer
 # the cursor on the 'h' of Search:
 bind   -n  C-M-r      copy-mode \; command-prompt -p "Search Up:" 'send-keys ? C-u %% Enter'
 
+# Switch to last session
+bind       /          switch-client -l
+
 bind       s          choose-session
 bind       t          choose-tree
 bind       A          command-prompt -I '#W' 'rename-window "%%"'
