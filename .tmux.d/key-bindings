@@ -29,6 +29,7 @@ bind       t          choose-tree
 bind       A          command-prompt -I '#W' 'rename-window "%%"'
 bind       M          set-window-option monitor-activity
 bind       C-g        set visual-bell
+bind       TAB        select-pane -t :.+
 bind       j          command-prompt -p "Join to window:" 'join-pane -t %%'
 bind       J          join-pane -t -
 unbind     K
