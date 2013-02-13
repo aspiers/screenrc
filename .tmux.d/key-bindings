@@ -27,6 +27,7 @@ bind       /          switch-client -l
 bind       s          choose-session
 bind       t          choose-tree
 bind       A          command-prompt -I '#W' 'rename-window "%%"'
+bind       C          command-prompt 'new-session -s "%%"'
 bind       M          set-window-option monitor-activity
 bind       C-g        set visual-bell
 bind       TAB        select-pane -t :.+
