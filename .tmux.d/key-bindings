@@ -35,7 +35,7 @@ bind       j          command-prompt -p "Join to window:" 'join-pane -t %%'
 bind       J          join-pane -t -
 bind       C-k        confirm-before kill-window
 bind       C-r        respawn-pane
-bind       C-Q        kill-session
+bind       Q          kill-session
 unbind     C-l
 bind       C-l        refresh-client
 bind       S          command-prompt -I '#S' 'rename-session "%%"'
