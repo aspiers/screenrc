@@ -25,6 +25,7 @@ bind   -n  C-M-r      copy-mode \; command-prompt -p "Search Up:" 'send-keys ? C
 bind       /          switch-client -l
 
 bind       s          choose-session
+bind       C-s        command-prompt 'attach-session -t "%%"'
 bind       t          choose-tree
 bind       A          command-prompt -I '#W' 'rename-window "%%"'
 bind       C          command-prompt 'new-session -s "%%"'
