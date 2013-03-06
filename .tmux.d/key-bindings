@@ -29,6 +29,11 @@ bind       C-s        command-prompt 'attach-session -t "%%"'
 bind       t          choose-tree
 bind       A          command-prompt -I '#W' 'rename-window "%%"'
 bind       C          command-prompt 'new-session -s "%%"'
+
+# http://unix.stackexchange.com/questions/5832/is-there-an-equivalent-of-gnu-screens-log-command-in-tmux
+bind       h          pipe-pane -o "exec cat >>$HOME/'#W-tmux.log'" \; display-message 'Enabled logging to ~/#W-tmux.log'
+bind       H          pipe-pane \; display-message 'Disabled logging to ~/#W-tmux.log'
+
 bind       M          set-window-option monitor-activity
 bind       C-g        set visual-bell
 bind       TAB        select-pane -t :.+
