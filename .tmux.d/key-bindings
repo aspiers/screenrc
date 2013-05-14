@@ -24,6 +24,9 @@ bind   -n  C-M-r      copy-mode \; command-prompt -p "Search Up:" 'send-keys ? C
 # Switch to last session
 bind       /          switch-client -l
 
+bind       %          split-window
+bind       '"'        split-window -h
+
 bind       s          choose-session
 bind       C-s        command-prompt 'attach-session -t "%%"'
 bind       t          choose-tree
