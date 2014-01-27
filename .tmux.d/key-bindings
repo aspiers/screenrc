@@ -37,7 +37,8 @@ bind       C          command-prompt 'new-session -s "%%"'
 bind       h          pipe-pane -o "exec cat >>$HOME/'#W-tmux.log'" \; display-message 'Enabled logging to ~/#W-tmux.log'
 bind       H          pipe-pane \; display-message 'Disabled logging to ~/#W-tmux.log'
 
-bind       M          set-window-option monitor-activity
+bind       m          set-window-option monitor-activity
+bind       M          command-prompt -p "Monitor for silent interval (secs):" 'set-window-option monitor-silence %%'
 bind       C-g        set visual-bell
 bind       TAB        select-pane -t :.+
 bind       j          command-prompt -p "Join to window:" 'join-pane -t %%'
