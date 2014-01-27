@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo "See unhelpful dialogue with thomas_adam on #tmux"
+exit 1
+tmux list-sessions | awk -F: '/\(attached\)/ { print $1 }'
