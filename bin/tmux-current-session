@@ -1,5 +1,8 @@
 #!/bin/bash
 
-echo "See unhelpful dialogue with thomas_adam on #tmux"
-exit 1
-tmux list-sessions | awk -F: '/\(attached\)/ { print $1 }'
+# Solution provided by thomas_adam on #tmux
+if [ -n "$TMUX" ]; then
+    tmux display-message -pF '#{client_session}'
+fi
+
+#tmux list-sessions | awk -F: '/\(attached\)/ { print $1 }'
