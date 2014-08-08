@@ -1,6 +1,12 @@
 # ANSI mostly works with older screens, until the status line hits
 # the right-hand edge of the terminal.
+
+# %{...} surrounds attribute/color modifiers
+# uppercase means bold
+# = BW means set to bold blue (B) background and bold white (W) foreground
+
 #hardstatus alwayslastline "[0m%?[1;33m%-Lw[0m%?[44;37m%n*%f %t%?(%u)%?[0m%?[1;33m%+Lw%?[0m"
+
 hardstatus alwayslastline "%{=}%?%{+b Y}%-Lw%{-}%?%{= BW}%n*%f %t%?(%u)%?%{-}%?%{+b Y}%+Lw%?%{-}"
 # and without colour (FIXME)
 # hardstatus alwayslastline "%{=}%?%{+b Y}%-Lw%{-}%?%{= BW}%n*%f %t%?(%u)%?%{-}%?%{+b Y}%+Lw%?%{-}"
