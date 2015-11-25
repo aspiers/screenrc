@@ -7,7 +7,7 @@
 
 #hardstatus alwayslastline "[0m%?[1;33m%-Lw[0m%?[44;37m%n*%f %t%?(%u)%?[0m%?[1;33m%+Lw%?[0m"
 
-hardstatus alwayslastline "%{=}%?%{+b Y}%-Lw%{-}%?%{= BW}%n*%f %t%?(%u)%?%{-}%?%{+b Y}%+Lw%?%{-}"
+hardstatus alwayslastline "%{=}%?%{+b Y}%-Lw%{-}%?%{= cW}%n*%f %t%?(%u)%?%{-}%?%{+b Y}%+Lw%?%{-}"
 # and without colour (FIXME)
 # hardstatus alwayslastline "%{=}%?%{+b Y}%-Lw%{-}%?%{= BW}%n*%f %t%?(%u)%?%{-}%?%{+b Y}%+Lw%?%{-}"
 # Really old screens don't have %-Lw and %+Lw
