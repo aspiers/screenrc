@@ -5,30 +5,18 @@
 # re-read any config files if the server is already running; it will
 # just connect to the running server.
 
-# Default of "#T" is a waste of space
+# Default status on RHS is a waste of space
 set -g status-right ""
 
-set -g status-left-fg  yellow
-set -g status-right-fg yellow
-set -g status-bg green
+set -g status-left-style fg=yellow
+set -g status-style      bg=green
 
-set -g window-status-current-fg    white
-set -g window-status-current-attr  bold
+set -g window-status-current-style  fg=white,bold
+set -g window-status-last-style     fg=white
+set -g window-status-style          fg=black
 
-# N.B. these default to 'reverse'
-set -g window-status-activity-attr none
-set -g window-status-bell-attr     none
-set -g window-status-content-attr  none
+set -g window-status-activity-style bg=blue,fg=black
+set -g window-status-bell-style     bg=red,fg=black
 
-set -g window-status-activity-bg   blue
-set -g window-status-bell-bg       red
-set -g window-status-content-bg    magenta
-
-set -g window-status-activity-fg   black
-set -g window-status-bell-fg       black
-set -g window-status-content-fg    black
-
-# The old way of doing it.
-# There's a bug making these two the wrong way around
-#set -g window-status-alert-fg red
-#set -g window-status-alert-bg white
+# This is also a waste of space, as cute as it looks.
+#source /usr/share/tmux/powerline.conf
