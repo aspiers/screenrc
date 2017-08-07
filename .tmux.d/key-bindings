@@ -55,15 +55,4 @@ bind   -n  F10        command-prompt
 set -g mode-keys vi
 set -g status-keys emacs
 
-# Odd that this isn't the default
-bind -t emacs-edit  C-g  cancel
-bind -t vi-edit     C-g  cancel
-
-bind -t vi-copy     C-p  cursor-up
-bind -t vi-copy     C-n  cursor-down
-bind -t vi-copy     M-v  page-up
-bind -t vi-copy     C-v  page-down
-bind -t vi-copy     M-<  history-top
-bind -t vi-copy     M->  history-bottom
-
 bind                *    set synchronize-panes
