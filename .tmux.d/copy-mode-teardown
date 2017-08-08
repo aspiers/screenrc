@@ -1,5 +1,0 @@
-unbind -n         q
-bind   -t vi-copy q       cancel
-unbind -n         IC
-bind   -n         IC      paste-buffer
-source ~/.tmux.d/prompt-navigation

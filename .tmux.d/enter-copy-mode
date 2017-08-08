@@ -1,12 +1,10 @@
-unbind -t vi-copy C-PPage
 unbind -n         C-PPage
 bind   -n         C-PPage send-keys 'kk?' C-u '-------(' Enter 0jlllll
 bind   -n         C-NPage send-keys 'j/'  C-u '-------(' Enter 0jlllll
 
-bind   -t vi-copy Q       cancel
 unbind -n         q
 bind   -n         q       source ~/.tmux.d/quit-copy-mode
 
-bind   -n         IC      source ~/.tmux.d/copy-and-paste
+bind   -n         IC      paste
 
 copy-mode

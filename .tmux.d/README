@@ -1,6 +1,8 @@
 tmux binding quirks
 -------------------
 
+*** This info is out of date!! ***
+
 http://thread.gmane.org/gmane.comp.terminal-emulators.tmux.user/1519/focus=1648
 
 - When binding, can only use commands from the "current" mode

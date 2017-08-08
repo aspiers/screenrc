@@ -1,2 +1,1 @@
 send-keys Q
-source ~/.tmux.d/copy-mode-teardown
