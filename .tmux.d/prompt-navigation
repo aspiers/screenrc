@@ -1,2 +1,10 @@
-unbind -n C-PPage
-bind   -n C-PPage source ~/.tmux.d/search-backward-prompt
+bind -n C-PPage copy-mode\; source ~/.tmux.d/sequences/search-backward-prompt
+bind -n C-NPage copy-mode\; \
+                send -X page-up\; \
+                send -X start-of-line\; \
+                send -X cursor-up\; \
+                send -X cursor-left\; \
+                source ~/.tmux.d/sequences/search-forward-prompt
+
+bind -Tcopy-mode-vi C-PPage source ~/.tmux.d/sequences/search-backward-prompt
+bind -Tcopy-mode-vi C-NPage source ~/.tmux.d/sequences/search-forward-prompt

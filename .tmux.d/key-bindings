@@ -6,20 +6,11 @@ bind     \   send-prefix
 bind     C-\ last-window
 
 # handy bindings
-bind   -n  PPage      source ~/.tmux.d/copy-page-up
-bind   -n  IC         paste-buffer
+bind   -n  PPage       copy-mode -u
+bind   -n  NPage       copy-mode\; send -X start-of-line
+bind -Tcopy-mode-vi IC send -X copy-selection-and-cancel\; paste-buffer
 
-# Only commands from the current (i.e. main) key-table are available,
-# not search-backward which is only available to *-edit key-tables:
-#bind   -n  C-M-r      copy-mode \; search-backward
-
-# So we have to use send-keys instead:
-#bind   -n  C-M-r      copy-mode \; send-keys ?
-
-# But we can do better by using command-prompt to work around the
-# crappy native search-backward prompt which has no history and places
-# the cursor on the 'h' of Search:
-bind   -n  C-M-r      copy-mode \; command-prompt -p "Search Up:" 'send-keys ? C-u %% Enter'
+bind   -n  C-M-r      command-prompt -i -p "isearch up:" "send-keys -X search-backward-incremental '%%'"
 
 # Switch to last session
 bind       /          switch-client -l

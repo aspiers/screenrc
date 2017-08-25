@@ -1,0 +1,2 @@
+send -X search-forward '`-->'
+send -X -N 5 cursor-right

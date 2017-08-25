@@ -1,2 +1,0 @@
-source ~/.tmux.d/enter-copy-mode
-send-keys PPage
