@@ -1,7 +1,11 @@
 # See ~/org/notes/Terminals.org::*colours
-#
-# We choose the third option from the strategies listed:
-term rxvt-256color
+
+# New strategy: don't set terminal type here at all, because it
+# would be a layer boundary violation, by assuming knowledge about
+# the terminal in which screen is running.
+
+# We previously choose the third option from the strategies listed:
+#term rxvt-256color
 
 # However this breaks left/right cursor keys in less(1) on openSUSE 12.1 :-(
 # Fixable via: TERM=screen 
