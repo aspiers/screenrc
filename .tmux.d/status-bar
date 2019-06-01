@@ -5,6 +5,9 @@
 # re-read any config files if the server is already running; it will
 # just connect to the running server.
 
+# Allow cx / set_title screen to work
+setw -g allow-rename on
+
 # Default status on RHS is a waste of space
 set -g status-right ""
 
