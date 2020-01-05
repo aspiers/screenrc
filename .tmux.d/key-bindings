@@ -33,7 +33,7 @@ bind       M          command-prompt -p "Monitor for silent interval (secs):" 's
 bind       C-g        set visual-bell
 bind       TAB        select-pane -t :.+
 bind       j          command-prompt -p "Join to window:" 'join-pane -t %%'
-bind       J          join-pane -t -
+bind       J          join-pane -t :-
 bind       C-k        confirm-before kill-window
 bind       C-r        respawn-pane
 bind       Q          confirm-before kill-session
