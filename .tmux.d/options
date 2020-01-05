@@ -10,7 +10,8 @@
 set -g automatic-rename on
 
 # See ~/org/notes/Terminals.org
-set -g default-terminal screen-256color-bce-it
+#set -g default-terminal screen-256color-bce-it
+set -g default-terminal screen-256color
 
 set -g history-limit 20000
 set -g set-clipboard on
