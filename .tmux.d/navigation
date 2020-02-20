@@ -6,5 +6,5 @@ bind -n  C-M-Down   select-pane -D
 bind -n  C-M-Left   select-pane -L
 bind -n  C-M-Right  select-pane -R
 
-bind -n  C-S-PPage  swap-window -t -
-bind -n  C-S-NPage  swap-window -t +
+bind -n  C-S-PPage  swap-window -d -t -
+bind -n  C-S-NPage  swap-window -d -t +
