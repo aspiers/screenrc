@@ -14,7 +14,7 @@ set -g status-right ""
 set -g status-left-style fg=yellow
 set -g status-style      bg=green
 
-set -g window-status-current-style  bg=red,fg=white,bold
+set -g window-status-current-style  bg=blue,fg=white,bold
 set -g window-status-last-style     fg=white,bold
 set -g window-status-style          fg=black
 
