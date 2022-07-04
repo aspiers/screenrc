@@ -1,5 +1,6 @@
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'laktak/extrakto'
 
 # Other examples:
 # set -g @plugin 'github_username/plugin_name'
