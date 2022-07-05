@@ -7,7 +7,7 @@ bind     C-\\ last-window
 
 # handy bindings
 bind   -n  PPage       copy-mode -u
-bind   -n  NPage       copy-mode\; send -X start-of-line
+bind   -n  NPage       copy-mode
 bind -Tcopy-mode-vi IC send -X copy-selection-and-cancel\; paste-buffer
 
 bind   -n  C-M-r      command-prompt -i -p "isearch up:" "send-keys -X search-backward-incremental '%%'"
