@@ -1,12 +1,31 @@
-set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'laktak/extrakto'
+# Keybindings reminder:
+#
+#   tmux prefix + I        =>  install all plugins
+#   tmux prefix + U        =>  show all plugins and optionally update selected plugin
+#   tmux prefix + alt + u  =>  remove plugins not in list
 
+# The belo syntax is used instead of the documented suggestion because
+# I have it in a file which tpm doesn't know how to find; see:
+#
+#   https://github.com/tmux-plugins/tpm/issues/57
+#   https://github.com/tmux-plugins/tpm/issues/77
+#   https://github.com/tmux-plugins/tpm/issues/85
+set -g @tpm_plugins '\
+    tmux-plugins/tpm \
+    Morantron/tmux-fingers \
+    tmux-plugins/tmux-sensible \
+    laktak/extrakto \
+'
+
+# See https://github.com/tmux-plugins/list
+#
 # Other examples:
 # set -g @plugin 'github_username/plugin_name'
 # set -g @plugin 'github_username/plugin_name#branch'
 # set -g @plugin 'git@github.com:user/plugin'
 # set -g @plugin 'git@bitbucket.com:user/plugin'
+
+source ~/.tmux.d/fingers
 
 # Initialize TMUX plugin manager
 run '~/.tmux/plugins/tpm/tpm'

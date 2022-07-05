@@ -1,0 +1,15 @@
+# Config for tmux-fingers plugin
+# See https://github.com/Morantron/tmux-fingers
+
+# See built-in PATTERNS_LIST in ~/.tmux/plugins/tmux-fingers/scripts/config.sh
+# which makes this one pointless:
+# set -g @fingers-pattern-0 "0x[0-9a-fA-F]{64}"
+
+set -g @fingers-main-action :paste:
+set -g @fingers-shift-action :copy:
+set -g @fingers-control-action 'tmux-action-menu'
+
+# Found this command for triggering tmux-fingers via:
+#
+#   tmux list-keys G fingers
+bind -n C-o run-shell "~/.tmux/plugins/tmux-fingers/scripts/tmux-fingers.sh 'fingers-mode'"
