@@ -17,6 +17,7 @@ bind       /          switch-client -l
 
 bind       %          split-window
 bind       '"'        split-window -h
+# " <- unconfuse emacs
 
 bind       s          choose-session
 bind       C-s        command-prompt 'attach-session -t "%%"'
