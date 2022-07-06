@@ -1,25 +1,37 @@
 #!/bin/bash
 
-buffer="$(cat)"
+SEARCH_NAME='google search'
 
-if [[ $buffer =~ (0x[0-9a-fA-F]{64})([^0-9a-zA-Z]|$) ]] ||
-   [[ $buffer =~ (0x[0-9a-fA-F]{32})([^0-9a-zA-Z]|$) ]] ||
-   [[ $buffer =~ ([a-z0-9]+\.eth([^.0-9a-zA-Z]|$)) ]]
-then
-    ref="${BASH_REMATCH[1]}"
-    # echo "Matched: [$ref]"
-    # exit 0
-    tmux display-menu -T "EVM transaction actions" \
-         blockscan.com b \
-             "run -b 'url-handler \"https://blockscan.com/search?f=0&q=$ref\" >/dev/null'"
-         etherscan.io e \
-             "run -b 'url-handler \"https://etherscan.io/search?f=0&q=$ref\" >/dev/null'" \
-         polygonscan.com p \
-             "run -b 'url-handler \"https://polygonscan.com/search?f=0&q=$ref\" >/dev/null'" \
-         mumbai.polygonscan.com m \
-             "run -b 'url-handler \"https://mumbai.polygonscan.com/search?f=0&q=$ref\" >/dev/null'" \
+urlAction () {
+    template="$1"
+    search="$2"
+    quoted_search="${search// /+}"
+    url="${template//%s/$quoted_search}"
+    echo "run -b 'url-handler \"$url\" >/dev/null'"
+}
 
-    exit 0
+googleSearchAction () {
+    urlAction "https://www.google.co.uk/search?hl=en&q=%s" "$1"
+}
+
+duckduckgoSearchAction () {
+    urlAction "https://duckduckgo.com/?q=%s&ia=web" "$1"
+}
+
+blockExplorerAction () {
+    domain="$1"
+    search="$2"
+    urlAction "https://$domain/search?f=0&q=%s" "$search"
+}
+
+if [ -n "$1" ]; then
+    buffer="$1"
+else
+    buffer="$(cat)"
 fi
 
-tmux display-message "No actions for $buffer"
+HOOK_DIR=".tmux.d/actions"
+
+while read hook; do
+    source "$hook"
+done < <(source $ZDOT_FIND_HOOKS "$HOOK_DIR")

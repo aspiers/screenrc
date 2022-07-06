@@ -32,7 +32,7 @@ bind       H          pipe-pane \; display-message 'Disabled logging to ~/#W-tmu
 bind       m          set-window-option monitor-activity
 bind       M          command-prompt -p "Monitor for silent interval (secs):" 'set-window-option monitor-silence %%'
 bind       C-g        set visual-bell
-bind       TAB        select-pane -t :.+
+# bind       TAB        select-pane -t :.+
 bind       j          command-prompt -p "Join to window:" 'join-pane -t %%'
 bind       J          join-pane -t :-
 bind       C-k        confirm-before kill-window

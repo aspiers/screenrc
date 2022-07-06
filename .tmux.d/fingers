@@ -7,7 +7,7 @@
 
 set -g @fingers-main-action :paste:
 set -g @fingers-shift-action :copy:
-set -g @fingers-control-action 'tmux-action-menu'
+set -g @fingers-ctrl-action 'tmux-action-menu'
 
 # Found this command for triggering tmux-fingers via:
 #

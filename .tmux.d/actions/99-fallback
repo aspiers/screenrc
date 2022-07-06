@@ -1,0 +1,5 @@
+# -*- mode: sh -*-
+
+tmux display-menu -T "Fallback actions" \
+     "Google search" g "$( googleSearchAction "$buffer" )" \
+     "DuckDuckGo" d "$( duckduckgoSearchAction "$buffer" )"

@@ -1,0 +1,11 @@
+# -*- mode: sh -*-
+
+if [[ $buffer =~ ((/[[:alpha:].-]+)+)\(([1-9][0-9]*),([1-9][0-9]*)\): ]]
+then
+    path="${BASH_REMATCH[1]}"
+    line="${BASH_REMATCH[2]}"
+    column="${BASH_REMATCH[3]}"
+    echo "Matched: $path at line $line col $column"
+    ef "$path+$line:$column"
+    exit 0
+fi

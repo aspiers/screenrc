@@ -26,6 +26,7 @@ set -g @tpm_plugins '\
 # set -g @plugin 'git@bitbucket.com:user/plugin'
 
 source ~/.tmux.d/fingers
+source ~/.tmux.d/extrakto
 
 # Initialize TMUX plugin manager
 run '~/.tmux/plugins/tpm/tpm'
