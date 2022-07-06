@@ -12,6 +12,9 @@ then
              "$( blockExplorerAction blockscan.com "$ref" )" \
          etherscan.io e \
              "$( blockExplorerAction etherscan.io "$ref" )" \
+         rinkeby.etherscan.io r \
+             "$( blockExplorerAction rinkeby.etherscan.io "$ref" )" \
+         "" \
          polygonscan.com p \
              "$( blockExplorerAction polygonscan.com "$ref" )" \
          mumbai.polygonscan.com m \
