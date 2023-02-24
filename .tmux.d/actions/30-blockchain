@@ -20,6 +20,15 @@ then
          mumbai.polygonscan.com m \
              "$( blockExplorerAction mumbai.polygonscan.com "$ref" )" \
          "" \
+         celoscan.io c \
+             "$( blockExplorerAction celoscan.io "$ref" )" \
+         explorer.celo.org C \
+             "$( urlAction https://explorer.celo.org/mainnet/address/$ref )" \
+         alfajores.celoscan.io a \
+             "$( blockExplorerAction alfajores.celoscan.io "$ref" )" \
+         explorer.celo.org/alfajores A \
+             "$( urlAction https://explorer.celo.org/alfajores/address/$ref )" \
+         "" \
          "Google search" g "$( googleSearchAction "$ref" )" \
          "DuckDuckGo" d "$( duckduckgoSearchAction "$ref" )"
 
