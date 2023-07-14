@@ -1,4 +1,4 @@
-set -g @extrakto_open_tool 'tmux-action-menu'
+set -g @extrakto_open_tool 'tmux-action'
 
 # Found this command for triggering extrakto via:
 #

@@ -13,7 +13,7 @@ set -g @fingers-pattern-3 "((^|[^[:alnum:]])regen:[[:alnum:]]+\.rdf)"
 
 set -g @fingers-main-action :paste:
 set -g @fingers-shift-action :copy:
-set -g @fingers-ctrl-action 'tmux-action-menu'
+set -g @fingers-ctrl-action 'tmux-action'
 
 # Found this command for triggering tmux-fingers via:
 #
