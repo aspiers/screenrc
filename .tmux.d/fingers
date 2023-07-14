@@ -8,6 +8,7 @@
 # First built-in pattern for file pathnames, with " 14:34-60" style suffix
 # e.g. for webpack errors
 set -g @fingers-pattern-1 "((^|^\.|[[:space:]]|[[:space:]]\.|[[:space:]]\.\.|^\.\.)[[:alnum:]~_-]*/[][[:alnum:]_.#$%&+=/@-]+ ([1-9][0-9]*):([1-9][0-9]*)-[1-9][0-9]*)"
+set -g @fingers-pattern-2 "((^|[^[:alnum:]])ipfs://[[:alnum:]]+)"
 
 set -g @fingers-main-action :paste:
 set -g @fingers-shift-action :copy:
