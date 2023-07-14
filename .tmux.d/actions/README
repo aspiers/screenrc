@@ -1,0 +1,3 @@
+This directory contains actions for use with tmux-action,
+which can be triggered both from the extrakto and fingers
+plugins.
