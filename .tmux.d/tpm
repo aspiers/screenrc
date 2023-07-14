@@ -4,7 +4,7 @@
 #   tmux prefix + U        =>  show all plugins and optionally update selected plugin
 #   tmux prefix + alt + u  =>  remove plugins not in list
 
-# The belo syntax is used instead of the documented suggestion because
+# The below syntax is used instead of the documented suggestion because
 # I have it in a file which tpm doesn't know how to find; see:
 #
 #   https://github.com/tmux-plugins/tpm/issues/57
