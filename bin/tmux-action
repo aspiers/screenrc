@@ -33,5 +33,9 @@ fi
 HOOK_DIR=".tmux.d/actions"
 
 while read hook; do
+    if ! [ -f "$hook" ] || ! [ -x "$hook" ]; then
+        : Skipping non-executable hook $hook
+        continue
+    fi
     source "$hook"
 done < <(source $ZDOT_FIND_HOOKS "$HOOK_DIR")
