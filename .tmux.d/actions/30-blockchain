@@ -8,7 +8,7 @@ then
     # echo "Matched: [$ref]"
     # exit 0
     tmux display-menu -T "EVM transaction actions" \
-         blockscan.com b \
+         blockscan.com B \
              "$( blockExplorerAction blockscan.com "$ref" )" \
          etherscan.io e \
              "$( blockExplorerAction etherscan.io "$ref" )" \
@@ -28,6 +28,11 @@ then
              "$( blockExplorerAction alfajores.celoscan.io "$ref" )" \
          explorer.celo.org/alfajores A \
              "$( urlAction https://explorer.celo.org/alfajores/address/$ref )" \
+         "" \
+         basescan.org b \
+             "$( blockExplorerAction basescan.org "$ref" )" \
+         sepolia.basescan.org s \
+             "$( blockExplorerAction sepolia.basescan.org "$ref" )" \
          "" \
          "Google search" g "$( googleSearchAction "$ref" )" \
          "DuckDuckGo" d "$( duckduckgoSearchAction "$ref" )"
