@@ -21,6 +21,6 @@ for screen_terminfo in screen-256color{,-bce}; do
     TERMINFO=`pwd`/.terminfo tic /tmp/screen.terminfo
 done
 
-# Check the results with: infocmp screen-256color-it
+# Check the results with: infocmp screen-256color-bce{,-it}
 # N.B. fixups run after stowing, so this will need to be restowed
 # manually to take effect :-/
