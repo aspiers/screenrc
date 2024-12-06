@@ -1,6 +1,9 @@
 # Config for tmux-fingers plugin
 # See https://github.com/Morantron/tmux-fingers
 
+# When switching to v2 rewrite in Crystal, will need this:
+# run-shell ~/.tmux/plugins/tmux-fingers/tmux-fingers.tmux
+
 # See built-in PATTERNS_LIST in ~/.tmux/plugins/tmux-fingers/scripts/config.sh
 # which makes this one pointless:
 # set -g @fingers-pattern-0 "0x[0-9a-fA-F]{64}"
