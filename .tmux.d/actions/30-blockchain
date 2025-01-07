@@ -17,8 +17,8 @@ then
          "" \
          polygonscan.com p \
              "$( blockExplorerAction polygonscan.com "$ref" )" \
-         mumbai.polygonscan.com m \
-             "$( blockExplorerAction mumbai.polygonscan.com "$ref" )" \
+         amoy.polygonscan.com m \
+             "$( blockExplorerAction amoy.polygonscan.com "$ref" )" \
          "" \
          celoscan.io c \
              "$( blockExplorerAction celoscan.io "$ref" )" \
