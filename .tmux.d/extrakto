@@ -3,4 +3,4 @@ set -g @extrakto_open_tool 'tmux-action'
 # Found this command for triggering extrakto via:
 #
 #   tmux list-keys G extrakto
-bind -n C-M-O run-shell "\"/home/adam/.tmux/plugins/extrakto/scripts/open.sh\" \"#{pane_id}\""
+bind -n C-M-o run-shell "\"/home/adam/.tmux/plugins/extrakto/scripts/open.sh\" \"#{pane_id}\""
