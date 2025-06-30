@@ -1,5 +1,5 @@
 # First move above current prompt line
 send -X cursor-up
 
-send -X search-backward '`-->'
-send -X -N 5 cursor-right
+send -X search-backward '❯ '
+send -X -N 2 cursor-right

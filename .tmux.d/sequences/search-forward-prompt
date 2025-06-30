@@ -1,2 +1,2 @@
-send -X search-forward '`-->'
-send -X -N 5 cursor-right
+send -X search-forward '❯ '
+send -X -N 2 cursor-right
