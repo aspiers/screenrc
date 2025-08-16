@@ -15,6 +15,7 @@ set -g @tpm_plugins '\
     Morantron/tmux-fingers \
     tmux-plugins/tmux-sensible \
     laktak/extrakto \
+    sainnhe/tmux-fzf \
 '
 
 # See https://github.com/tmux-plugins/list

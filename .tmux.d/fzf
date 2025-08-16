@@ -1,0 +1,12 @@
+# Include current session / window in list when switching
+TMUX_FZF_SWITCH_CURRENT=1
+
+# Make popup 90% of terminal width
+TMUX_FZF_OPTIONS="-w 90%"
+
+# M-\ => session switch
+bind -n M-\\ run-shell -b "~/.tmux/plugins/tmux-fzf/scripts/session.sh switch"
+
+# Allow sending regular M-\, e.g. in case I'm running emacs from the terminal
+# and want to do fixup-whitespace.
+bind    M-\\ send-keys M-\\
