@@ -42,6 +42,7 @@ unbind     C-l
 bind       C-l        refresh-client
 bind       S          command-prompt -I '#S' 'rename-session "%%"'
 bind   -n  F10        command-prompt
+#bind   -n  M-:        command-prompt
 
 # This strange combination is what I'm used to from GNU screen
 set -g mode-keys vi
