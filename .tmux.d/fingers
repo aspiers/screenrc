@@ -21,4 +21,4 @@ set -g @fingers-ctrl-action 'tmux-action'
 # Found this command for triggering tmux-fingers via:
 #
 #   tmux list-keys G fingers
-bind -n C-o run-shell "~/.tmux/plugins/tmux-fingers/scripts/tmux-fingers.sh 'fingers-mode'"
+bind -n C-M-x run-shell "~/.tmux/plugins/tmux-fingers/scripts/tmux-fingers.sh 'fingers-mode'"
