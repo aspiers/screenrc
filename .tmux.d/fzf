@@ -5,7 +5,7 @@ TMUX_FZF_SWITCH_CURRENT=1
 TMUX_FZF_OPTIONS="-w 90%"
 
 # M-\ => session switch
-bind -n M-\\ run-shell -b "~/.tmux/plugins/tmux-fzf/scripts/session.sh switch"
+bind -n M-\\ run-shell -b "~/.tmux/plugins/tmux-fzf/scripts/window.sh switch"
 
 # Allow sending regular M-\, e.g. in case I'm running emacs from the terminal
 # and want to do fixup-whitespace.
