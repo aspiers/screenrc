@@ -20,7 +20,11 @@ set -g @tpm_plugins '\
     sainnhe/tmux-fzf \
     tmux-plugins/tmux-resurrect \
     tmux-plugins/tmux-continuum \
+    tmux-plugins/tmux-yank \
+    omerxx/tmux-sessionx \
 '
+
+set -g @sessionx-filter-current 'false'
 
 # See https://github.com/tmux-plugins/list
 #
