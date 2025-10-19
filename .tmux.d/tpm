@@ -18,6 +18,8 @@ set -g @tpm_plugins '\
     tmux-plugins/tmux-sensible \
     laktak/extrakto \
     sainnhe/tmux-fzf \
+    tmux-plugins/tmux-resurrect \
+    tmux-plugins/tmux-continuum \
 '
 
 # See https://github.com/tmux-plugins/list
