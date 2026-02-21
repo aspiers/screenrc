@@ -20,4 +20,10 @@ set -g set-clipboard on
 set -g set-titles on
 set -g wrap-search off
 
+# Fixes things like Ctrl+Meta+j in opencode by preventing it
+# from being interpreted as Meta+linefeed.  Guessing it might
+# help with some emacs-nox bindings too.
+set -g extended-keys on
+set -as terminal-features 'xterm*:extkeys'
+
 #update-environment "DISPLAY SSH_ASKPASS SSH_AUTH_SOCK SSH_AGENT_PID SSH_CONNECTION WINDOWID XAUTHORITY XAUTHLOCALHOSTNAME"
