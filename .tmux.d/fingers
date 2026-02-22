@@ -1,10 +1,7 @@
 # Config for tmux-fingers plugin
 # See https://github.com/Morantron/tmux-fingers
 
-# When switching to v2 rewrite in Crystal, will need this:
-# run-shell ~/.tmux/plugins/tmux-fingers/tmux-fingers.tmux
-
-# See built-in PATTERNS_LIST in ~/.tmux/plugins/tmux-fingers/scripts/config.sh
+# See built-in patterns in the plugin source
 # which makes this one pointless:
 # set -g @fingers-pattern-0 "0x[0-9a-fA-F]{64}"
 
@@ -18,7 +15,5 @@ set -g @fingers-main-action :paste:
 set -g @fingers-shift-action :copy:
 set -g @fingers-ctrl-action 'tmux-action'
 
-# Found this command for triggering tmux-fingers via:
-#
-#   tmux list-keys G fingers
-bind -n C-M-x run-shell "~/.tmux/plugins/tmux-fingers/scripts/tmux-fingers.sh 'fingers-mode'"
+# Trigger tmux-fingers manually (v2+ uses bin/tmux-fingers start)
+bind -n C-M-x run-shell -b "~/.tmux/plugins/tmux-fingers/bin/tmux-fingers start '#{pane_id}'"
