@@ -22,7 +22,7 @@ if-shell 'hostname -s | grep -q "^vps"' {
 }
 
 set -g window-status-current-style  bg=blue,fg=white,bold
-set -g window-status-last-style     fg=white,bold
+set -g window-status-last-style     fg=white
 set -g window-status-style          fg=black
 
 set -g window-status-activity-style bg=blue,fg=black
