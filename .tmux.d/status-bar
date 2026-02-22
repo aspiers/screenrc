@@ -8,11 +8,14 @@
 # Allow cx / set_title screen to work
 setw -g allow-rename on
 
-# Default status on RHS is a waste of space
-set -g status-right ""
-
-set -g status-left-style fg=yellow
+set -g status-left "#{session_name} "
+set -g status-left-style fg=red
 set -g status-style      bg=green
+
+set -g status-right "#h"
+set -g status-right-style fg=red
+
+if-shell 'hostname -s | grep -q "^vps"' { set -g status-style bg=red; set -g status-right-style fg=white }
 
 set -g window-status-current-style  bg=blue,fg=white,bold
 set -g window-status-last-style     fg=white,bold
