@@ -15,12 +15,6 @@ set -g status-style      bg=green
 set -g status-right "#h"
 set -g status-right-style fg=red
 
-if-shell 'hostname -s | grep -q "^vps"' {
-  set -g status-style bg=red
-  set -g status-left-style fg=white
-  set -g status-right-style fg=white
-}
-
 set -g window-status-format         " #I:#W "
 set -g window-status-current-format " #I:#W "
 set -g window-status-separator      ""
@@ -31,6 +25,14 @@ set -g window-status-style          fg=black
 
 set -g window-status-activity-style bg=blue,fg=black
 set -g window-status-bell-style     bg=red,fg=black
+
+if-shell 'hostname -s | grep -q "^vps"' {
+  set -g status-style                 bg=red
+  set -g status-left-style            fg=white
+  set -g status-right-style           fg=white
+  set -g window-status-activity-style bg=brightyellow,fg=black
+  set -g window-status-bell-style     bg=brightgreen,fg=black
+}
 
 # This is also a waste of space, as cute as it looks.
 #source /usr/share/tmux/powerline.conf
