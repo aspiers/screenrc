@@ -9,6 +9,7 @@
 setw -g allow-rename on
 
 set -g status-left "#{session_name} "
+set -g status-left-length 0
 set -g status-left-style fg=red
 set -g status-style      bg=green
 
