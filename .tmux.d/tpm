@@ -19,12 +19,17 @@ set -g @tpm_plugins '\
     laktak/extrakto \
     sainnhe/tmux-fzf \
     tmux-plugins/tmux-resurrect \
-    tmux-plugins/tmux-continuum \
     tmux-plugins/tmux-yank \
     omerxx/tmux-sessionx \
+    tmux-plugins/tmux-continuum \
 '
 
 set -g @sessionx-filter-current 'false'
+
+# tmux-resurrect / tmux-continuum
+# continuum must be last in @tpm_plugins so its status-right hook isn't
+# overwritten by other plugins.
+set -g @continuum-restore 'on'
 
 # See https://github.com/tmux-plugins/list
 #

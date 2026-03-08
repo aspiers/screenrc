@@ -20,7 +20,7 @@ bind       '"'        split-window -h
 # " <- unconfuse emacs
 
 bind       s          choose-session
-bind       C-s        command-prompt 'attach-session -t "%%"'
+bind       C-s        run-shell "$HOME/.tmux/plugins/tmux-resurrect/scripts/save.sh"
 bind       t          choose-tree
 bind       A          command-prompt -I '#W' 'rename-window "%%"'
 bind       C          command-prompt 'new-session -s "%%"'
@@ -36,7 +36,8 @@ bind       C-g        set visual-bell
 bind       j          command-prompt -p "Join to window:" 'join-pane -t %%'
 bind       J          join-pane -t :-
 bind       C-k        confirm-before kill-window
-bind       C-r        respawn-pane
+bind       C-r        run-shell "$HOME/.tmux/plugins/tmux-resurrect/scripts/restore.sh"
+bind       X          respawn-pane
 bind       Q          confirm-before kill-session
 unbind     C-l
 bind       C-l        refresh-client
