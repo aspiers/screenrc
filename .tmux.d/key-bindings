@@ -35,6 +35,10 @@ bind       C-g        set visual-bell
 # bind       TAB        select-pane -t :.+
 bind       j          command-prompt -p "Join to window:" 'join-pane -t %%'
 bind       J          join-pane -t :-
+# Jump to next/previous window with alert, across all sessions
+bind   -n  S-Up       run-shell "tmux-next-alert-window prev"
+bind   -n  S-Down     run-shell "tmux-next-alert-window"
+
 bind       C-k        confirm-before kill-window
 bind       C-r        run-shell "$HOME/.tmux/plugins/tmux-resurrect/scripts/restore.sh"
 bind       X          respawn-pane

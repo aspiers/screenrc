@@ -1,0 +1,57 @@
+#!/bin/bash
+#
+# Switch to the next window with a bell alert, cycling across
+# all sessions.  If there are no alerts, display a message.
+#
+# Usage: tmux-next-alert-window [prev]
+#   With "prev" argument, cycle in reverse order.
+
+direction="${1:-next}"
+
+# Get current session:window
+current=$(tmux display-message -p '#{session_name}:#{window_index}')
+
+# List all windows with bell flag set, in session:window order.
+alert_windows=()
+while IFS= read -r line; do
+    flag="${line%% *}"
+    target="${line#* }"
+    if [[ "$flag" == "1" ]]; then
+        alert_windows+=("$target")
+    fi
+done < <(tmux list-windows -a -F '#{window_bell_flag} #{session_name}:#{window_index}')
+
+if [[ ${#alert_windows[@]} -eq 0 ]]; then
+    tmux display-message "No windows with bells"
+    exit 0
+fi
+
+# Find index of current window in the alert list
+current_idx=-1
+for i in "${!alert_windows[@]}"; do
+    if [[ "${alert_windows[$i]}" == "$current" ]]; then
+        current_idx=$i
+        break
+    fi
+done
+
+# Pick the next (or previous) alert window, wrapping around
+count=${#alert_windows[@]}
+if [[ "$direction" == "prev" ]]; then
+    if [[ $current_idx -ge 0 ]]; then
+        target_idx=$(( (current_idx - 1 + count) % count ))
+    else
+        # Current window has no alert; pick the last alert window
+        target_idx=$(( count - 1 ))
+    fi
+else
+    if [[ $current_idx -ge 0 ]]; then
+        target_idx=$(( (current_idx + 1) % count ))
+    else
+        # Current window has no alert; pick the first alert window
+        target_idx=0
+    fi
+fi
+
+target="${alert_windows[$target_idx]}"
+tmux switch-client -t "$target"
