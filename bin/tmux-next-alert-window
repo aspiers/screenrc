@@ -2,9 +2,8 @@
 #
 # Switch to the next window with a bell alert, cycling across
 # all sessions (current session first).  If there are no alerts,
-# fall back to opencode windows (names ending in ": oc") in the
-# current session, then opencode windows in any session.  If
-# none exist, display a message.
+# fall back to opencode windows (names ending in ": oc"), again
+# with current session first.  If none exist, display a message.
 #
 # Usage: tmux-next-alert-window [prev]
 #   With "prev" argument, cycle in reverse order.
@@ -44,28 +43,22 @@ read -ra alert_windows <<< "$(reorder_current_session_first "${raw_alerts[@]}")"
 # Strip empty element if raw_alerts was empty
 [[ "${alert_windows[0]}" == "" ]] && alert_windows=()
 
-# Fall back to opencode windows if no alerts:
-# first current session only, then all sessions.
+# Fall back to opencode windows if no alerts,
+# with current session's windows first.
 if [[ ${#alert_windows[@]} -eq 0 ]]; then
-    local_oc=()
-    other_oc=()
+    raw_oc=()
     while IFS= read -r line; do
         target="${line%% *}"
         name="${line#* }"
         if [[ "$name" == *": oc" ]]; then
-            if [[ "${target%%:*}" == "$current_session" ]]; then
-                local_oc+=("$target")
-            else
-                other_oc+=("$target")
-            fi
+            raw_oc+=("$target")
         fi
     done < <(tmux list-windows -a -F '#{session_name}:#{window_index} #{window_name}')
 
-    if [[ ${#local_oc[@]} -gt 0 ]]; then
-        alert_windows=("${local_oc[@]}")
-    elif [[ ${#other_oc[@]} -gt 0 ]]; then
-        alert_windows=("${other_oc[@]}")
-    else
+    read -ra alert_windows <<< "$(reorder_current_session_first "${raw_oc[@]}")"
+    [[ "${alert_windows[0]}" == "" ]] && alert_windows=()
+
+    if [[ ${#alert_windows[@]} -eq 0 ]]; then
         tmux display-message "No alert or opencode windows"
         exit 0
     fi
