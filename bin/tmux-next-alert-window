@@ -1,39 +1,71 @@
 #!/bin/bash
 #
 # Switch to the next window with a bell alert, cycling across
-# all sessions.  If there are no alerts, fall back to cycling
-# through opencode windows (names ending in ": oc").  If neither
-# exist, display a message.
+# all sessions (current session first).  If there are no alerts,
+# fall back to opencode windows (names ending in ": oc") in the
+# current session, then opencode windows in any session.  If
+# none exist, display a message.
 #
 # Usage: tmux-next-alert-window [prev]
 #   With "prev" argument, cycle in reverse order.
 
 direction="${1:-next}"
 
-# Get current session:window
+# Get current session:window and session name
 current=$(tmux display-message -p '#{session_name}:#{window_index}')
+current_session="${current%%:*}"
+
+# Reorder a list of session:window targets so that the current
+# session's windows come first, preserving order within each group.
+reorder_current_session_first() {
+    local local_wins=() other_wins=()
+    for w in "$@"; do
+        if [[ "${w%%:*}" == "$current_session" ]]; then
+            local_wins+=("$w")
+        else
+            other_wins+=("$w")
+        fi
+    done
+    echo "${local_wins[@]} ${other_wins[@]}"
+}
 
 # List all windows with bell flag set, in session:window order.
-alert_windows=()
+raw_alerts=()
 while IFS= read -r line; do
     flag="${line%% *}"
     target="${line#* }"
     if [[ "$flag" == "1" ]]; then
-        alert_windows+=("$target")
+        raw_alerts+=("$target")
     fi
 done < <(tmux list-windows -a -F '#{window_bell_flag} #{session_name}:#{window_index}')
 
-# Fall back to opencode windows if no alerts
+# Prioritise current session's windows
+read -ra alert_windows <<< "$(reorder_current_session_first "${raw_alerts[@]}")"
+# Strip empty element if raw_alerts was empty
+[[ "${alert_windows[0]}" == "" ]] && alert_windows=()
+
+# Fall back to opencode windows if no alerts:
+# first current session only, then all sessions.
 if [[ ${#alert_windows[@]} -eq 0 ]]; then
+    local_oc=()
+    other_oc=()
     while IFS= read -r line; do
         target="${line%% *}"
         name="${line#* }"
         if [[ "$name" == *": oc" ]]; then
-            alert_windows+=("$target")
+            if [[ "${target%%:*}" == "$current_session" ]]; then
+                local_oc+=("$target")
+            else
+                other_oc+=("$target")
+            fi
         fi
     done < <(tmux list-windows -a -F '#{session_name}:#{window_index} #{window_name}')
 
-    if [[ ${#alert_windows[@]} -eq 0 ]]; then
+    if [[ ${#local_oc[@]} -gt 0 ]]; then
+        alert_windows=("${local_oc[@]}")
+    elif [[ ${#other_oc[@]} -gt 0 ]]; then
+        alert_windows=("${other_oc[@]}")
+    else
         tmux display-message "No alert or opencode windows"
         exit 0
     fi
