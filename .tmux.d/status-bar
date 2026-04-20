@@ -20,8 +20,8 @@ set -g window-status-format         " #I:#W "
 set -g window-status-current-format " #I:#W "
 set -g window-status-separator      ""
 
-set -g window-status-current-style  bg=blue,fg=white,bold
-set -g window-status-last-style     fg=white
+set -g window-status-current-style  bg=blue,bold
+set -g window-status-last-style     fg=white,bold
 set -g window-status-style          fg=black
 
 set -g window-status-activity-style bg=blue,fg=black
@@ -31,8 +31,8 @@ if-shell 'hostname -s | grep -q "^vps"' {
   set -g status-style                 bg=red
   set -g status-left-style            fg=white
   set -g status-right-style           fg=white
-  set -g window-status-current-style  bg=blue,fg=brightblack
-  set -g window-status-last-style     fg=brightblack
+  set -g window-status-current-style  bg=blue,bold
+  set -g window-status-last-style     fg=white,bold
   set -g window-status-activity-style bg=brightyellow,fg=black
   set -g window-status-bell-style     bg=brightgreen,fg=black
 }
