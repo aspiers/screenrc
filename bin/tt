@@ -6,6 +6,11 @@
 #   dark  bg → light theme (white bg, black fg)
 #   light bg → dark  theme (black bg, white fg)
 #
+# With any argument, instead emits OSC 110/111 to reset fg/bg to
+# the terminal's configured defaults — useful after a prior toggle
+# has left a runtime override masking profile/theme changes made
+# by set-colour-theme.
+#
 # Works in terminals that support OSC 10/11 (xterm, foot, kitty,
 # alacritty, etc.).  Inside tmux, pass-through is needed — tmux 3.3+
 # with allow-passthrough handles this automatically.
@@ -61,6 +66,13 @@ set_theme() {
     printf '\e]11;%s\e\\\e]10;%s\e\\' "$bg" "$fg"
 }
 
+reset_theme() {
+    # OSC 110 = reset foreground, OSC 111 = reset background.
+    # Clears any runtime OSC 10/11 override so terminal falls back
+    # to its configured profile colours.
+    printf '\e]110\e\\\e]111\e\\' > /dev/tty
+}
+
 is_light_bg() {
     # Determine whether the background is "light" by checking
     # if all RGB components are above the midpoint (0x8000).
@@ -82,6 +94,11 @@ is_light_bg() {
 }
 
 main() {
+    if [[ $# -gt 0 ]]; then
+        reset_theme
+        exit 0
+    fi
+
     local bg_rgb
     if ! bg_rgb=$(query_bg_colour); then
         echo "Failed to query terminal background colour." >&2
