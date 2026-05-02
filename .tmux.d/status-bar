@@ -8,13 +8,20 @@
 # Allow cx / set_title screen to work
 setw -g allow-rename on
 
-set -g status-left "#{session_name} "
+# set -g status-left "#{session_name}»"
+# set -g status-right "«#{s/-.*//:#{host_short}}"
+set -g status-left "#[reverse]#{session_name} "
+set -g status-right "#[reverse] #{s/-.*//:#{host_short}}"
+
 set -g status-left-length 0
-set -g status-left-style fg=red
+
+set -g status-left-style  fg=default
+set -g status-right-style fg=default
+# set -g status-left-style  fg=red
+# set -g status-right-style fg=red
+
 set -g status-style      bg=green
 
-set -g status-right "#h"
-set -g status-right-style fg=red
 
 set -g window-status-format         " #I:#W "
 set -g window-status-current-format " #I:#W "
@@ -29,8 +36,6 @@ set -g window-status-bell-style     bg=red,fg=black
 
 if-shell 'hostname -s | grep -q "^vps"' {
   set -g status-style                 bg=red
-  set -g status-left-style            fg=white
-  set -g status-right-style           fg=white
   set -g window-status-current-style  bg=blue,bold
   set -g window-status-last-style     fg=white,bold
   set -g window-status-activity-style bg=brightyellow,fg=black
