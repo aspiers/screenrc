@@ -25,6 +25,7 @@ set -g wrap-search off
 # from being interpreted as Meta+linefeed.  Guessing it might
 # help with some emacs-nox bindings too.
 set -g extended-keys on
+set -g extended-keys-format csi-u
 set -as terminal-features 'xterm*:extkeys'
 
 #update-environment "DISPLAY SSH_ASKPASS SSH_AUTH_SOCK SSH_AGENT_PID SSH_CONNECTION WINDOWID XAUTHORITY XAUTHLOCALHOSTNAME"
