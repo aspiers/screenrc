@@ -1,4 +1,6 @@
 set -g @extrakto_open_tool 'tmux-action'
+# Prefer Oh My Zsh's clipcopy detection over extrakto's built-in clipboard heuristic.
+set -g @extrakto_clip_tool '$HOME/bin/tmux-clipcopy'
 
 # Found this command for triggering extrakto via:
 #

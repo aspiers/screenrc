@@ -1,0 +1,65 @@
+#!/bin/bash
+set -euo pipefail
+
+try_omz_clipcopy() {
+  command -v zsh >/dev/null 2>&1 || return 127
+
+  zsh -fc '
+    local clipboard_zsh=""
+
+    if [[ -n "${ZSH:-}" && -r "$ZSH/lib/clipboard.zsh" ]]; then
+      clipboard_zsh="$ZSH/lib/clipboard.zsh"
+    elif [[ -r "$HOME/.oh-my-zsh/lib/clipboard.zsh" ]]; then
+      clipboard_zsh="$HOME/.oh-my-zsh/lib/clipboard.zsh"
+    else
+      return 127
+    fi
+
+    source "$clipboard_zsh"
+    (( $+functions[clipcopy] )) || return 127
+    clipcopy
+  '
+}
+
+if try_omz_clipcopy; then
+  exit 0
+fi
+
+case "${OSTYPE:-}" in
+  darwin*)
+    if command -v pbcopy >/dev/null 2>&1; then
+      exec pbcopy
+    fi
+    ;;
+esac
+
+if [[ -n "${WAYLAND_DISPLAY:-}" ]] && command -v wl-copy >/dev/null 2>&1; then
+  exec wl-copy
+fi
+
+if [[ -n "${DISPLAY:-}" ]] && command -v xsel >/dev/null 2>&1; then
+  exec xsel --clipboard --input
+fi
+
+if [[ -n "${DISPLAY:-}" ]] && command -v xclip >/dev/null 2>&1; then
+  exec xclip -selection clipboard -in
+fi
+
+if command -v lemonade >/dev/null 2>&1; then
+  exec lemonade copy
+fi
+
+if command -v doitclient >/dev/null 2>&1; then
+  exec doitclient wclip
+fi
+
+if command -v win32yank >/dev/null 2>&1; then
+  exec win32yank -i
+fi
+
+if [[ -n "${TMUX:-}" ]] && command -v tmux >/dev/null 2>&1; then
+  exec tmux load-buffer -w -
+fi
+
+echo "tmux-clipcopy: no supported clipboard tool found" >&2
+exit 1
