@@ -23,8 +23,11 @@ set -g status-right-style fg=default
 set -g status-style      bg=green
 
 
-set -g window-status-format         " #I:#W "
-set -g window-status-current-format " #I:#W "
+# Show the pane title (#T) rather than the static tmux window name (#W)
+# so pi-status can display live agent activity in the tmux window list.
+# Keep entries compact; pi-status titles can be long.
+set -g window-status-format         " #I:#{=24:pane_title} "
+set -g window-status-current-format " #I:#{=32:pane_title} "
 set -g window-status-separator      ""
 
 set -g window-status-current-style  bg=blue,bold
